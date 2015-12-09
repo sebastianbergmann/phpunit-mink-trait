@@ -6,12 +6,12 @@ The main goal of this project is to demonstrate how PHPUnit can be extended thro
 
 ## Installation
 
-To add this component as a local, per-project dependency to your project, simply add a dependency on `sebastian/phpunit-mink-trait` to your project's `composer.json` file. Here is a minimal example of a `composer.json` file that just defines a dependency on this component:
+To add this component as a local, per-project dependency to your project, simply add a dependency on `phpunit/phpunit-mink-trait` to your project's `composer.json` file. Here is a minimal example of a `composer.json` file that just defines a dependency on this component:
 
 ```JSON
 {
     "require": {
-        "sebastian/phpunit-mink-trait": "~1.0"
+        "phpunit/phpunit-mink-trait": "~1.0"
     }
 }
 ```
