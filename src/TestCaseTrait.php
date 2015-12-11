@@ -11,7 +11,9 @@
 namespace phpunit\mink;
 
 use Behat\Mink\Session;
+use Behat\Mink\Driver\Goutte\Client as GoutteClient;
 use Behat\Mink\Driver\GoutteDriver;
+use GuzzleHttp\Client as GuzzleClient;
 
 trait TestCaseTrait
 {
@@ -25,7 +27,19 @@ trait TestCaseTrait
      */
     protected function createSession()
     {
-        $this->session = new Session(new GoutteDriver);
+        $client = new GoutteClient;
+
+        $client->setClient(
+            new GuzzleClient(
+                [
+                    'allow_redirects' => false,
+                    'cookies'         => true,
+                    'verify'          => false
+                ]
+            )
+        );
+
+        $this->session = new Session(new GoutteDriver($client));
     }
 
     /**
