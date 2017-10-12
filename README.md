@@ -6,21 +6,21 @@ The main goal of this project is to demonstrate how PHPUnit can be extended thro
 
 ## Installation
 
-To add this component as a local, per-project dependency to your project, simply add a dependency on `phpunit/phpunit-mink-trait` to your project's `composer.json` file. Here is a minimal example of a `composer.json` file that just defines a dependency on this component:
+You can add this library as a local, per-project dependency to your project using [Composer](https://getcomposer.org/):
 
-```JSON
-{
-    "require": {
-        "phpunit/phpunit-mink-trait": "~1.0"
-    }
-}
-```
+    composer require phpunit/phpunit-mink-trait
+
+If you only need this library during development, for instance to run your project's test suite, then you should add it as a development-time dependency:
+
+    composer require --dev phpunit/phpunit-mink-trait
 
 ## Usage
 
 ```php
 <?php
-class ExampleTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ExampleTest extends TestCase
 {
     use phpunit\mink\TestCaseTrait;
 

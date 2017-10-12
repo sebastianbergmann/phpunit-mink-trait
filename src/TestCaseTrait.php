@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 /*
- * This file is part of PHPUnit.
+ * This file is part of phpunit-mink-trait.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -10,6 +10,7 @@
 
 namespace phpunit\mink;
 
+use Behat\Mink\Element\DocumentElement;
 use Behat\Mink\Session;
 use Behat\Mink\Driver\Goutte\Client as GoutteClient;
 use Behat\Mink\Driver\GoutteDriver;
@@ -25,7 +26,7 @@ trait TestCaseTrait
     /**
      * @before
      */
-    protected function createSession()
+    protected function createSession(): void
     {
         $client = new GoutteClient;
 
@@ -44,9 +45,10 @@ trait TestCaseTrait
 
     /**
      * @param string $url
-     * @return \Behat\Mink\Element\DocumentElement
+     *
+     * @return DocumentElement
      */
-    protected function visit($url)
+    protected function visit($url): DocumentElement
     {
         $this->session->visit($url);
 
